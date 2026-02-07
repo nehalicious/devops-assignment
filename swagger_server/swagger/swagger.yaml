@@ -20,13 +20,13 @@ paths:
       parameters:
       - name: student_id
         in: path
-        description: the uid
+        description: the id
         required: true
         style: simple
         explode: false
         schema:
-          type: string
-          format: uuid
+          type: number
+          format: integer
       responses:
         "200":
           description: Successful operation
@@ -40,20 +40,20 @@ paths:
           description: Not found
       x-openapi-router-controller: swagger_server.controllers.default_controller
     delete:
-      summary: gets student
+      summary: deletes student
       description: |
         delete a single student
       operationId: delete_student
       parameters:
       - name: student_id
         in: path
-        description: the uid
+        description: the id
         required: true
         style: simple
         explode: false
         schema:
-          type: string
-          format: uuid
+          type: number
+          format: integer
       responses:
         "200":
           description: Successful operation
@@ -102,7 +102,8 @@ components:
       type: object
       properties:
         student_id:
-          type: integer
+          type: number
+          format: integer
           example: 16248821
         first_name:
           type: string
